@@ -1,0 +1,12 @@
+input.ng-invalid.ng-touched{
+    box-shadow:  2px 2px 5px red;
+ }
+ input.ng-invalid.ng-untouched{
+     box-shadow:  2px 2px 2px green;
+  }
+  .card{
+    box-shadow:  5px 5px 5px 5px rgb(224, 4, 173);
+    width: 400px;
+    margin: auto;
+    margin-top: 50px;
+}

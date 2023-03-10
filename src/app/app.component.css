@@ -1,0 +1,5 @@
+
+.container-fluid{
+    background:  linear-gradient(to left,  rgb(255, 58, 58), rgb(238, 0, 255), rgba(10, 235, 255, 0.407));
+    background-size: cover;
+}

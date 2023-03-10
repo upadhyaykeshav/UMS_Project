@@ -1,0 +1,89 @@
+
+
+<div class="card ">
+    <div class="card-body ">
+        <div class="container bg-light">
+                <form [formGroup]="registerForm">
+                    
+                    <h2 class="card-title text-center"><ul>Registration Form</ul> </h2>
+                    <hr>
+                    <div class="Form-Group">
+                        <label class="Form-label">First Name</label>
+                        <input type="text" class="form-control" name="fname" formControlName="fname"
+                            placeholder="enter firstname">
+                        <span style="color: red;" *ngIf="!registerForm.get('fname')?.valid && registerForm.get('fname')?.touched">* plz enter First Name</span>    
+                    </div>
+                    <div class="Form-Group">
+                        <label class="Form-label">Last Name</label>
+                        <input type="text" class="form-control" formControlName="lname" placeholder="enter lastname">
+                        <span style="color: red;" *ngIf="!registerForm.get('lname')?.valid && registerForm.get('lname')?.touched">* plz enter Last Name</span>    
+                    </div>
+                    <div class="Form-Group">
+                        <label class="Form-label">Email</label>
+                        <input type="email" #emailid (blur)="getEmail(emailid.value)" class="form-control" name="email" formControlName="email" placeholder="enter email">
+                        <span style="color: red;" *ngIf="!registerForm.get('email')?.valid && registerForm.get('email')?.touched">* plz enter valid mail "@"</span>    
+                    </div>
+                    <div class="Form-Group">
+                        <label class="Form-label">Phno</label>
+                        <input type="number" class="form-control" name="phno" formControlName="phno"
+                            placeholder="enter your phno">
+                            <span style="border: red;" *ngIf="!registerForm.get('phno')?.valid && registerForm.get('phno')?.touched "></span>    
+                    </div>
+                    <div class="Form-Group">
+                        <label class="Form-label">D.O.B</label>
+                        <input type="date" class="form-control" name="dob" formControlName="dob"
+                            placeholder="enter dob">
+                            <span style="border: red;" *ngIf="!registerForm.get('dob')?.valid && registerForm.get('dob')?.touched "></span> 
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio"  name="gender" id="male">
+                        <label class="form-check-label" for="male">
+                          Male
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio"  name="gender" id="female" >
+                        <label class="form-check-label" for="female">
+                          Female
+                        </label>
+                      </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label text-dark">country :</label> <br>
+                        <select class="form-control" name="countryId" formControlName="countryId"
+                             (change)="getStateData($any($event.target).value)">
+
+                            <option *ngFor="let c of countryOption|keyvalue" [value]="c.key">{{c.value}}</option>
+                            
+                        </select>
+                        <span style="border: red;" *ngIf="!registerForm.get('countryId')?.valid && registerForm.get('countryId')?.touched ">*</span>    
+
+                        
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label text-dark">state :</label> <br>
+                        <select class="form-control" name="stateId" formControlName="stateId"
+                            (change)="getCityData($any($event.target).value)">
+                            <option *ngFor="let s of stateOption|keyvalue" [value]="s.key">{{s.value}}</option>
+
+                        </select>
+                        <span style="border: red;" *ngIf="!registerForm.get('stateId')?.valid && registerForm.get('stateId')?.touched ">*</span>    
+
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label text-dark">city :</label> <br>
+                        <select class="form-control" name="cityId" formControlName="cityId">
+                            <option *ngFor="let t of cityOption|keyvalue" [value]="t.key">{{t.value}}</option>
+                        </select>
+                        <span style="border: red;" *ngIf="!registerForm.get('cityId')?.valid && registerForm.get('cityId')?.touched ">*</span>    
+
+                    </div>
+                    <button class="btn btn-outline-danger m-3" (click)="restdata(registerForm)">Reset</button>
+                    <button class="btn btn-outline-primary m-3" (click)="registerPost()">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+ 
+

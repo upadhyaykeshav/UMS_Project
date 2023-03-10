@@ -1,0 +1,39 @@
+
+<div class="card w-50 m-auto my-5 ">
+    <div class="card-body ">
+        <div class="container bg-light">
+            <div class="row ">
+                <h2 class="card-title">Unlock Account</h2>
+                <form [formGroup]="unlockForm">
+                    <div class="Form-Group">
+                        <label class="form-label">Email ID : </label> 
+                        <input class="form-control" formControlName="email" type="email" name="email" >
+                        <span style="border: red;" *ngIf="!unlockForm.get('email')?.valid && unlockForm.get('email')?.touched ">*  Plz Enter valid mail "@</span>
+
+                    </div>
+                    <div>
+                        <label class="form-label">Temporary Password : </label> 
+                        <input class="form-control" formControlName="tempPwd" type="password" name="tempPwd" >
+                        <span style="border: red;" *ngIf="!unlockForm.get('tempPwd')?.valid && unlockForm.get('tempPwd')?.touched "></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Choose New Password : </label> 
+                        <input class="form-control" formControlName="newPwd" type="password" name="newPwd" >
+                        <span style="border: red;" *ngIf="!unlockForm.get('newPwd')?.valid && unlockForm.get('newPwd')?.touched "></span>
+
+                    </div>
+                 <div class="form-group">
+                    <label class="form-label">Confirm Password : </label> 
+                    <input class="form-control" formControlName="confirmPwd" type="password" name="confirmPwd" >
+                    <span style="border: red;" *ngIf="!unlockForm.get('confirmPwd')?.valid && unlockForm.get('confirmPwd')?.touched "></span>
+
+                 </div>
+                  
+                    <button class="btn btn-danger m-3" (click)="unlockAccountPost()" type="submit">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
